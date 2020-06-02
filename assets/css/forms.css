@@ -1,0 +1,23 @@
+input[type=text] {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-bottom: 3px solid red;
+}
+input[type=password] {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-bottom: 3px solid red;
+}
+input[type=submit] {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background-color: gray;
+	border: none;
+	 cursor: pointer
+}
