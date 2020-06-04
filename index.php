@@ -14,6 +14,8 @@ error_reporting(E_ALL);
 	<link rel = "stylesheet" href = "assets/css/unsemantic.css">
 	<link rel = "stylesheet" href = "assets/css/styles.css">
 	<link rel = "stylesheet" href = "assets/css/forms.css">
+	<link rel = "stylesheet" href = "assets/css/animations.css">
+	<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet"> 
 	<!-- Meta -->
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
 	<meta name = "author" content = "Samuel Durrant-Walker">
@@ -86,6 +88,8 @@ error_reporting(E_ALL);
 						while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 							if(password_verify($pass, $row["Pass"])) {
 								echo "Password is Valid";
+								
+								header("Location: home.php");
 							} else {
 								echo "Invalid Password";
 							}
@@ -98,12 +102,13 @@ error_reporting(E_ALL);
 			<!-- Signup Form -->
 			<div class = "tablet-grid-50 grid-50 prefix-25 tablet-prefix-25 grid-parent" id ="signup-form">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-				<label for="Username">Username:</label><br>
-				<input type ="text" name="Username" id="Uname" maxlength="15" required><br><span id = "error"> * <?php echo $usernameErr;?></span><br>
-				<label for="Password">Password:</label><br>
-				<input type="password" name = "Password" id ="Pword" required><br><span id = "error"> * <?php echo $passErr;?></span><br>
-				<label for="Submit">Submit</label><br>
-				<input type="submit" name="Submit" value = "Login"><br>
+				<br><label for="Username">Username:</label>
+				<br><input type ="text" name="Username" id="Uname" maxlength="15" required><br><span id = "error"> * <?php echo $usernameErr;?></span>
+				<br><label for="Password">Password:</label>
+				<br><input type="password" name = "Password" id ="Pword" required><br><span id = "error"> * <?php echo $passErr;?></span>
+				<br><label for="Submit">Submit</label>
+				<br><input type="submit" name="Submit" value = "Login"><br>
+				<p>Don't have an account? <a href = "signup.php">Sign up here!</a></p>
 				</form>
 			</div>
 		</div>

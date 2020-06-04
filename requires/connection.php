@@ -4,6 +4,6 @@
 		echo "Failed to connect to MySQL: " . $link -> connect_error;
 		exit();
 	} else {
-		echo "Successfully connected";
+		//echo "Successfully connected";
 	}
 ?>

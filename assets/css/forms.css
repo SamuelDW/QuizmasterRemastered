@@ -3,14 +3,22 @@ input[type=text] {
 	padding: 12px 20px;
 	margin: 8px 0;
 	box-sizing: border-box;
+	border: none;
 	border-bottom: 3px solid red;
+	font-size:20px;
+	background-color: black;
+	color: white;
 }
 input[type=password] {
 	width: 70%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	box-sizing: border-box;
+	border: none;
 	border-bottom: 3px solid red;
+	font-size:20px;
+	background-color: black;
+	color: white;
 }
 input[type=submit] {
 	width: 70%;
@@ -19,5 +27,14 @@ input[type=submit] {
 	box-sizing: border-box;
 	background-color: gray;
 	border: none;
-	 cursor: pointer
+	cursor: pointer;
+	font-size: 20px;
+	color: white;
+	background-color: black;
+	box-shadow: 0 0 10px white;
+	
+}
+#error {
+	color:red;
+	font-size: 20px;
 }
