@@ -34,7 +34,7 @@ error_reporting(E_ALL);
 		
 		<!-- Login and Signup -->
 		<div class = "grid-container">
-			<div class = "tablet-grid-50 grid-50 prefix-25 tablet-prefix-25" id = "signup-container">
+			<div class = "tablet-grid-50 grid-50 prefix-25 tablet-prefix-25 hide-on-mobile" id = "signup-container">
 				<h2>Login</h2>
 			</div>
 			<?php 
@@ -72,7 +72,7 @@ error_reporting(E_ALL);
 						}
 					}
 					//Preparing and binding Statement
-					if(!$stmt = $link->prepare("SELECT Username, Pass FROM users WHERE Username = ?")) {
+					if(!$stmt = $link->prepare("SELECT Username, Pass, ProfileImg FROM users WHERE Username = ?")) {
 						echo "Prepare Failed";
 					}
 					
@@ -86,8 +86,12 @@ error_reporting(E_ALL);
 						
 						$result = $stmt->get_result();
 						while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+							$_SESSION["Profile"] = $row["ProfileImg"];
+							
 							if(password_verify($pass, $row["Pass"])) {
-								echo "Password is Valid";
+								
+								$_SESSION["Username"] = $username;
+								
 								
 								header("Location: home.php");
 							} else {
@@ -100,7 +104,7 @@ error_reporting(E_ALL);
 				}
 			?>
 			<!-- Signup Form -->
-			<div class = "tablet-grid-50 grid-50 prefix-25 tablet-prefix-25 grid-parent" id ="signup-form">
+			<div class = "tablet-grid-50 grid-50 prefix-25 tablet-prefix-25 grid-parent mobile-grid-100" id ="signup-form">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 				<br><label for="Username">Username:</label>
 				<br><input type ="text" name="Username" id="Uname" maxlength="15" required><br><span id = "error"> * <?php echo $usernameErr;?></span>
@@ -111,6 +115,13 @@ error_reporting(E_ALL);
 				<p>Don't have an account? <a href = "signup.php">Sign up here!</a></p>
 				</form>
 			</div>
+			
+			
+			<div class = "tablet-grid-70 tablet-prefix-15 grid-33 prefix-33 mobile-grid-100" id = "adspaced">
+				<h1>Space for Ads</h1>
+			</div>
+			
+			
 		</div>
 
 	</body>
