@@ -58,7 +58,6 @@ header {
 	color: #ff00e6;
 	animation: border-flicker 9s linear infinite;
 }
-
 #signup-container {
 	text-align: center;
 	margin-top: 10%;
@@ -69,14 +68,12 @@ header {
 	animation: border-flicker 15s linear infinite;
 	z-index: 10;
 	margin-bottom: 5%;
-
 }
 #signup-form {
 	text-align: center;
 	font-size: 20px;
 	animation: border-flicker 15s linear infinite;
 	z-index: 10;
-
 }
 /*///////////////////*/
 /* HOME.PHP CSS*/
@@ -91,3 +88,17 @@ header {
 #card-title {
 	color: #ff00e6;
 }
+/*///////////////////*/
+/* PROFILE.PHP CSS*/
+/*//////////////////*/
+#user-details {
+	text-align: center;
+	margin-top: 3%;
+	box-shadow: 0 0 20px rgba(16,134,232,0.73);
+}
+
+
+
+
+
+

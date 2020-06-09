@@ -1,7 +1,7 @@
 <?php 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+	ini_set('display_startup_errors', '1');
+	error_reporting(E_ALL);
 	session_start(); 
 	require_once("requires/connection.php");
 ?>
@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Quizmaster | Home</title>
+	<title>Quizmaster | Profile</title>
 	<!-- Stylesheets -->
 	<link rel = "stylesheet" href = "assets/css/unsemantic.css">
 	<link rel = "stylesheet" href = "assets/css/styles.css">
@@ -26,19 +26,20 @@ error_reporting(E_ALL);
 <body>
 <?php include 'includes/header.php';?>
 
-<div class = "grid-container">
-	<?php 
-		$pages = array("profile", "create", "join", "new", "saved", "leaderboard");
-		foreach($pages as $page) {
-			echo "<a href = '".$page.".php"."'>";
-				echo "<div class = 'tablet-grid-35 tablet-prefix-10 grid-parent' id = 'menu-card'>";
-					echo "<div class = 'grid-50 prefix-25' id = 'card-title'>";
-						echo "<h2>". ucwords($page)."</h2>";
-					echo "</div>";
-				echo "</div>";
-			echo "</a>";
-		}
-	?>
-</div>
+	<div class = "grid-container">
+		<div class = "tablet-grid-50 grid-parent" id = "user-details">
+			<div class = "grid-70 prefix-15" id = "details-title">
+				<h2><?php echo $_SESSION["Username"] . " Information"; ?></h2>
+			</div>
+			<div class = "grid-90 prefix-5" id = "change-details">
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+					<br><label for="Username">Username:</label><br>
+					<input type = "text" name = "Username" maxlength = "15">
+					<br><label for="Email">Email:</label><br>
+					<input type = "email" name = "Email">
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
